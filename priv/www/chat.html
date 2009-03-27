@@ -1,0 +1,63 @@
+<html>
+  <head>
+    <title>Reverse HTTP Demo</title>
+    <link type="text/css" rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+    <script type="text/javascript">
+      jQuery.noConflict();
+    </script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/prototype/1.6.0.3/prototype.js"></script>
+    <script type="text/javascript" src="httpd.js"></script>
+    <script type="text/javascript" src="demolog.js"></script>
+    <script type="text/javascript" src="chat.js"></script>
+  </head>
+  <body>
+    <div id="outerContainer">
+      <div id="innerContainer">
+	<h1>Reverse HTTP Demo</h1>
+	<p>
+	  This page contains a running chat application written in JavaScript.
+	  To use it, find a friend who is also viewing this page and enter her chat URL
+	  in the box below. Your chat URL is: <b><a
+	  id="demoLabel_link" target="_blank"
+	  href="http://???/">http://???/</a></b>. Then send messages by
+	  entering text into the message box below.
+	</p>
+	<p>
+	  You can add as many chat participants as you want by adding more URLs
+	  as chat nodes.
+	</p>
+	<h2>Conversation</h2>
+	<table id="conversation">
+	</table>
+	<p>
+	 <form action="#" onsubmit="send_message(); return false;">
+	   <input type="text" id="message" name="message" size="60" />
+	   <input type="submit" id="sendMessage" value="send message" />
+	 </form>
+	<p>
+	  To set your screen name, edit this input field:
+	  <input type="text" id="screenName" name="screenName" value="anon" />
+	</p>
+	<p>
+	  Enter URLs here to specify a recipients for your messages:<br />
+	  <input type="text" id="newNode" name="newNode" value="" size="60" />
+	  <input type="submit" id="addNode" value="add node"
+		 onclick="add_chat_node_from_form()" />
+	  <ul id="nodeList">
+	  </ul>
+	<p>
+	  To set the virtual-host this web server serves content for,
+	  edit this input field:
+	  <input type="text" id="demoLabel" name="demoLabel"
+		 onkeypress="demoLabel_keypress()"
+		 onchange="demoLabel_changed()"
+		 value="demo" />
+	  Note how the link in the top paragraph changes.
+	</p>
+	<pre id="logOutput"></pre>
+	<script type="text/javascript">demo_main();</script>
+      </div>
+    </div>
+  </body>
+</html>

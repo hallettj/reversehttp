@@ -1,0 +1,43 @@
+<html>
+  <head>
+    <title>Reverse HTTP Demo</title>
+    <link type="text/css" rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="prototype-1.6.0.2.js"></script>
+    <script type="text/javascript" src="httpd.js"></script>
+    <script type="text/javascript" src="demolog.js"></script>
+    <script type="text/javascript" src="github.js"></script>
+  </head>
+  <body>
+    <div id="outerContainer">
+      <div id="innerContainer">
+	<h1>Reverse HTTP Demo</h1>
+	<p>
+	  This page contains a running web server, written in
+	  Javascript. It is configured to display commit notifications from a <a
+	  href="http://github.com/">Github</a> repository in real time. To set
+	  this up, edit your Github repository settings to add this URL as a
+ 	  Post-Receive URL: <b><a
+	  id="demoLabel_link" target="_blank"
+	  href="http://???/">http://???/</a></b>
+	</p>
+	<p>
+	  Then push some commits to your repository and watch what happens.
+	</p>
+	<h2>Commits</h2>
+	<ul id="commit-list">
+	</ul>
+	<p>
+	  To set the virtual-host this web server serves content for,
+	  edit this input field:
+	  <input type="text" id="demoLabel" name="demoLabel"
+		 onkeypress="demoLabel_keypress()"
+		 onchange="demoLabel_changed()"
+		 value="demo" />
+	  Note how the link in the top paragraph changes.
+	</p>
+	<pre id="logOutput"></pre>
+	<script type="text/javascript">demo_main();</script>
+      </div>
+    </div>
+  </body>
+</html>
